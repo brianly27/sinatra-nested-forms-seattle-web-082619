@@ -1,2 +1,18 @@
-class Pirate
+class Pirate < ActiveRecord::Base
+    has_many :ships
+    attr_accessor :name, :weight, :height
+    @@all = []
+
+    def initialize(name, weight, height)
+        self.name = name
+        self.weight = weight
+        self.height = height
+
+        @@all << self
+    end
+
+    def self.all
+        @@all 
+    end
+
 end
